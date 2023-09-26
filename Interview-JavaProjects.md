@@ -873,9 +873,9 @@
      #邮箱Spring Mail相关的配置
      Spring:
        mail:
-         host: smtp.sina.com #host 的域名
-         username: cassius207093923@sina.com #host 的用户名
-         password: 7d68192e8d8f4290 #host 的第三方登录授权码
+         host: xxx #host 的域名
+         username: xxx #host 的用户名
+         password: xxx #host 的第三方登录授权码
          properties:
            mail:
              smtp:
@@ -8234,15 +8234,15 @@
 # 七牛云配置
 qiniu:
   key:
-    access: 1Jj2uD7D2JaG1Ce7LWu8jSOjwfGOKFtCfl4GaU2o
-    secret: T8Y08aG4V-2dlSKsbzyhKPE4_PP7mqq8X6CE1oOt
+    access: xxx
+    secret: xxx
   bucket: # 七牛云空间
     header: # 用户头像空间
-      name: community-header-cassius # 头像空间的名字
+      name: xxx # 头像空间的名字
       url: http://s1g0xc9xd.hb-bkt.clouddn.com # 头像空间的访问路径(不支持 https 访问)
     share: # 分享文件空间
-      name: community-share-cassius # 分享文件空间的名字
-      url: http://s1g1k4te8.hb-bkt.clouddn.com # 分享文件空间的访问路径(不支持 https 访问)
+      name: xxx # 分享文件空间的名字
+      url: xxx # 分享文件空间的访问路径(不支持 https 访问)
 ```
 
 - 客户端上传( 用户头像)
@@ -8808,7 +8808,7 @@ public class SpringBootTests {
           web:
             exposure:
               include: '*' # 暴露所有端点
-              exclude: info, caches # 排除 info 和 caches 两个端点
+              exclude: xxx, xx # 排除 xxx 和 xx 两个端点
       ```
 
     - 之后就访问不了 info 和 caches 两个端点：
@@ -8914,8 +8914,8 @@ public class SpringBootTests {
     spring:
       security:
     	user:
-    	  name: nowcoder11
-    	  password: 123456
+    	  name: xxx
+    	  password: xxx
     ```
 
   - 在本项目 **client 端的 application.yml 文件**中添加如下配置：
@@ -8929,8 +8929,8 @@ public class SpringBootTests {
             url: http://localhost:2022 # server 端的ip，非本项目的ip
             instance:
               prefer-ip: true # 使用 ip 注册
-            username: nowcoder11
-            password: 123456 # 登录 server 端的用户名和密码
+            username: xxx
+            password: xxx # 登录 server 端的用户名和密码
       application:
         name: community # 项目名称显示为 community
     ```
