@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.whut.community.dao.MessageMapper">
+
+    <sql id="selectFields">
+        id,
+        from_id, to_id,
+        conversation_id, content,
+        status, create_time
+    </sql>
+
+    <sql id="insertFields">
+        from_id, to_id,
+        conversation_id, content,
+        status, create_time
+    </sql>
+
+    <!--List<Message> selectConversations(int userId, int offset, int limit)-->
+    <select id="selectConversations" resultType="Message">
+        select <include refid="selectFields"/>
+        from message
+        where id in (
+            select max(id) from message
+            where status != 2
+            and from_id != 1
+            and (from_id = #{userId} or to_id = #{userId})
+            group by conversation_id
+        )
+        order by id desc
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--int selectConversationCount(int userId)-->
+    <select id="selectConversationCount" resultType="int">
+        select count(max_id_t.max_id) from (
+            select max(id) as max_id from message
+            where status != 2
+            and from_id != 1
+            and (from_id = #{userId} or to_id = #{userId})
+            group by conversation_id
+        ) as max_id_t
+    </select>
+
+    <!--List<Message> selectLetters(String conversationId, int offset, int limit)-->
+    <select id="selectLetters" resultType="Message">
+        select <include refid="selectFields"/>
+        from message
+        where status != 2
+        and from_id != 1
+        and conversation_id = #{conversationId}
+        order by id desc
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--int selectLetterCount(String conversationId)-->
+    <select id="selectLetterCount" resultType="int">
+        select count(id)
+        from message
+        where status != 2
+        and from_id != 1
+        and conversation_id = #{conversationId}
+    </select>
+
+    <!--int selectLetterUnreadCount(int userId, String conversationId)-->
+    <select id="selectLetterUnreadCount" resultType="int">
+        select count(id)
+        from message
+        where status = 0
+        and from_id != 1
+        and to_id = #{userId}
+        <if test="conversationId!=null">
+            and conversation_id = #{conversationId}
+        </if>
+    </select>
+    
+    <!--int insertMessage(Message message)-->
+    <insert id="insertMessage" parameterType="Message" keyProperty="id">
+        insert into message(<include refid="insertFields"/>)
+        values(#{fromId}, #{toId}, #{conversationId}, #{content}, #{status}, #{createTime})
+    </insert>
+    
+    <!--int updateStatus(List<Integer> ids, int status)-->
+    <insert id="updateStatus">
+        update message set status = #{status}
+        where id in
+        <foreach collection="ids" item="id" open="(" separator=", " close=")">
+            #{id}
+        </foreach>
+    </insert>
+
+    <!--int updateOneMessageStatus(int id, int status)-->
+    <update id="updateOneMessageStatus">
+        update message set status = #{status}
+        where id = #{id}
+    </update>
+
+    <!--Message selectLatestNotice(int userId, String topic)-->
+    <select id="selectLatestNotice" resultType="Message">
+        select <include refid="selectFields"/>
+        from message
+        where id in (
+            select max(id) from message
+            where status != 2
+            and from_id = 1
+            and to_id = #{userId}
+            and conversation_id = #{topic}
+        )
+    </select>
+
+    <!--int selectNoticeCount(int userId, String topic)-->
+    <select id="selectNoticeCount" resultType="int">
+        select count(id) from message
+        where status != 2
+        and from_id = 1
+        and to_id = #{userId}
+        and conversation_id = #{topic}
+    </select>
+
+    <!--int selectNoticeUnreadCount(int userId, String topic)-->
+    <select id="selectNoticeUnreadCount" resultType="int">
+        select count(id)
+        from message
+        where status = 0
+        and from_id = 1
+        and to_id = #{userId}
+        <if test="topic!=null">
+            and conversation_id = #{topic}
+        </if>
+    </select>
+
+    <!--List<Message> selectNotices(int userId, String topic, int offset, int limit)-->
+    <select id="selectNotices" resultType="Message">
+        select <include refid="selectFields"/>
+        from message
+        where status != 2
+        and from_id = 1
+        and to_id = #{userId}
+        and conversation_id = #{topic}
+        order by create_time desc
+        limit #{offset}, #{limit}
+    </select>
+
+</mapper>

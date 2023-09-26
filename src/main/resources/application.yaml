@@ -1,6 +1,6 @@
 # ServerProperties
 server:
-  port: 8080
+  port: 2048
   servlet:
     context-path: /community
 
@@ -9,6 +9,18 @@ server:
 spring:
   thymeleaf:
     cache: false
+
+  # Spring Admin 相关配置
+  boot:
+    admin:
+      client:
+        url: http://localhost:2022
+        instance:
+          prefer-ip: true # 使用 ip 注册
+        username: xxx
+        password: xxx
+  application:
+    name: community # 项目名称显示为 community
 
   #开启支持POST请求方式
   webflux:
@@ -21,13 +33,79 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/community?characterEncoding=utf-8&useSSL=false&serverTimezone=Hongkong
-    username: root
-    password: asdfjkl
+    username: xxx
+    password: xxx
     type: com.zaxxer.hikari.HikariDataSource
     hikari:
       maximum-pool-size: 15
       minimum-idle: 5
       idle-timeout: 30000
+
+  #邮箱Spring Mail相关的配置
+  mail:
+    host: smtp.sina.com
+    username: xxx
+    password: xxx
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: false
+            required: false
+    default-encoding: UTF-8
+    protocol: smtp
+
+  # Redis 相关配置
+  redis:
+    database: 11
+    host: localhost
+    port: 6379
+
+  # Kafka 相关配置
+  kafka:
+    bootstrap-servers: localhost:9092 # 服务器ip
+    consumer:
+      group-id: community-consumer-group # 消费者的组 id，可以在 consumer.properties 文件中查看到
+      enable-auto-commit: true # 消费者凭借 偏移量offset 查找分区中的消息，这个 offset 是否自动提交
+      auto-commit-interval: 3000 # 自动提交的时间间隔，单位是 毫秒
+
+  # Elasticsearch 相关配置
+  data:
+    elasticsearch:
+      cluster-name: nowcoder
+      cluster-nodes: 127.0.0.1:9300
+
+  # 普通线程池相关配置 TaskExecutionProperties
+  task:
+    execution:
+      pool:
+        core-size: 5
+        max-size: 15
+        queue-capacity: 100
+
+  # 可完成定时任务的线程池相关配置 TaskSchedulingProperties
+    scheduling:
+      pool:
+        size: 5
+
+  # Spring Quartz 相关配置 QuartzProperties
+  quartz:
+    job-store-type: jdbc
+    scheduler-name: communityScheduler
+    properties:
+      org:
+        quartz:
+          scheduler:
+            instanceId: AUTO
+          jobStore:
+            class: org.quartz.impl.jdbcjobstore.JobStoreTX
+            driverDelegateClass: org.quartz.impl.jdbcjobstore.StdJDBCDelegate
+            isClustered: true
+          threadPool:
+            class: org.quartz.simpl.SimpleThreadPool
+            threadCount: 5
+
 
 #MyBatis相关配置
 # MybatisProperties
@@ -43,3 +121,43 @@ mybatis:
 logging:
   level:
     com.whut.community: debug
+
+# 配置本服务器的域名
+community:
+  path:
+    domain: http://localhost:2048
+    # 用户头像存储路径
+    upload: E:/work/data/upload
+
+# wk 相关配置
+wk:
+  image:
+    command: E:/wkhtmltox/wkhtmltopdf/bin/wkhtmltoimage # 命令位置
+    storage: E:/work/data/wk-images # 图片存放位置
+
+# 七牛云配置
+qiniu:
+  key:
+    access: xxx
+    secret: xxx
+  bucket: # 七牛云空间
+    header: # 用户头像空间
+      name: xxx # 头像空间的名字
+      url: xxx # 头像空间的访问路径(不支持 https 访问)
+    share: # 分享文件空间
+      name: xxx # 分享文件空间的名字
+      url: xxx # 分享文件空间的访问路径(不支持 https 访问)
+
+# Caffeine 相关配置
+caffeine:
+  posts:
+    max-size: 15
+    expire-seconds: 180 # 数据变化 或者 设置淘汰策略 时才会删掉缓存
+
+# Spring Actuator 相关配置
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*' # 暴露所有端点
+        exclude: x, x # 排除 info 和 caches 两个端点

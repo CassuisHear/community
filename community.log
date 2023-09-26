@@ -1,0 +1,45 @@
+2023-05-09 21:57:28.592  INFO 20612 --- [main] com.whut.community.LoggerTests           : Starting LoggerTests using Java 11.0.6 on DESKTOP-IDRDEHC with PID 20612 (started by 隠赟 in E:\JavaProjects\community)
+2023-05-09 21:57:28.592 DEBUG 20612 --- [main] com.whut.community.LoggerTests           : Running with Spring Boot v2.7.10, Spring v5.3.26
+2023-05-09 21:57:28.592  INFO 20612 --- [main] com.whut.community.LoggerTests           : No active profile set, falling back to 1 default profile: "default"
+2023-05-09 21:57:29.881  INFO 20612 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-05-09 21:57:30.147  INFO 20612 --- [main] com.whut.community.LoggerTests           : Started LoggerTests in 1.914 seconds (JVM running for 2.629)
+2023-05-09 21:57:30.424 DEBUG 20612 --- [main] com.whut.community.LoggerTests           : debug log
+2023-05-09 21:57:30.424  INFO 20612 --- [main] com.whut.community.LoggerTests           : info log
+2023-05-09 21:57:30.424  WARN 20612 --- [main] com.whut.community.LoggerTests           : warn log
+2023-05-09 21:57:30.424 ERROR 20612 --- [main] com.whut.community.LoggerTests           : error log
+2023-05-09 22:02:53.287  INFO 25128 --- [main] com.whut.community.LoggerTests           : Starting LoggerTests using Java 11.0.6 on DESKTOP-IDRDEHC with PID 25128 (started by 隠赟 in E:\JavaProjects\community)
+2023-05-09 22:02:53.289 DEBUG 25128 --- [main] com.whut.community.LoggerTests           : Running with Spring Boot v2.7.10, Spring v5.3.26
+2023-05-09 22:02:53.289  INFO 25128 --- [main] com.whut.community.LoggerTests           : No active profile set, falling back to 1 default profile: "default"
+2023-05-09 22:02:54.600  INFO 25128 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-05-09 22:02:54.874  INFO 25128 --- [main] com.whut.community.LoggerTests           : Started LoggerTests in 1.938 seconds (JVM running for 2.681)
+2023-05-09 22:02:55.167 DEBUG 25128 --- [main] com.whut.community.LoggerTests           : debug log
+2023-05-09 22:02:55.167  INFO 25128 --- [main] com.whut.community.LoggerTests           : info log
+2023-05-09 22:02:55.167  WARN 25128 --- [main] com.whut.community.LoggerTests           : warn log
+2023-05-09 22:02:55.167 ERROR 25128 --- [main] com.whut.community.LoggerTests           : error log
+2023-05-09 22:04:02.374  INFO 22076 --- [main] com.whut.community.LoggerTests           : Starting LoggerTests using Java 11.0.6 on DESKTOP-IDRDEHC with PID 22076 (started by 隠赟 in E:\JavaProjects\community)
+2023-05-09 22:04:02.375 DEBUG 22076 --- [main] com.whut.community.LoggerTests           : Running with Spring Boot v2.7.10, Spring v5.3.26
+2023-05-09 22:04:02.376  INFO 22076 --- [main] com.whut.community.LoggerTests           : No active profile set, falling back to 1 default profile: "default"
+2023-05-09 22:04:03.727  INFO 22076 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-05-09 22:04:04.004  INFO 22076 --- [main] com.whut.community.LoggerTests           : Started LoggerTests in 2.019 seconds (JVM running for 2.78)
+2023-05-09 22:04:04.274 DEBUG 22076 --- [main] com.whut.community.LoggerTests           : debug log
+2023-05-09 22:04:04.274  INFO 22076 --- [main] com.whut.community.LoggerTests           : info log
+2023-05-09 22:04:04.274  WARN 22076 --- [main] com.whut.community.LoggerTests           : warn log
+2023-05-09 22:04:04.274 ERROR 22076 --- [main] com.whut.community.LoggerTests           : error log
+2023-05-09 22:06:15.704  INFO 1756 --- [main] com.whut.community.LoggerTests           : Starting LoggerTests using Java 11.0.6 on DESKTOP-IDRDEHC with PID 1756 (started by 隠赟 in E:\JavaProjects\community)
+2023-05-09 22:06:15.704 DEBUG 1756 --- [main] com.whut.community.LoggerTests           : Running with Spring Boot v2.7.10, Spring v5.3.26
+2023-05-09 22:06:15.704  INFO 1756 --- [main] com.whut.community.LoggerTests           : No active profile set, falling back to 1 default profile: "default"
+2023-05-09 22:06:17.008  INFO 1756 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-05-09 22:06:17.336  INFO 1756 --- [main] com.whut.community.LoggerTests           : Started LoggerTests in 1.963 seconds (JVM running for 2.721)
+2023-05-09 22:06:17.588 DEBUG 1756 --- [main] com.whut.community.LoggerTests           : debug log
+2023-05-09 22:06:17.588  INFO 1756 --- [main] com.whut.community.LoggerTests           : info log
+2023-05-09 22:06:17.588  WARN 1756 --- [main] com.whut.community.LoggerTests           : warn log
+2023-05-09 22:06:17.588 ERROR 1756 --- [main] com.whut.community.LoggerTests           : error log
+2023-05-09 22:06:44.139  INFO 22372 --- [main] com.whut.community.LoggerTests           : Starting LoggerTests using Java 11.0.6 on DESKTOP-IDRDEHC with PID 22372 (started by 隠赟 in E:\JavaProjects\community)
+2023-05-09 22:06:44.139 DEBUG 22372 --- [main] com.whut.community.LoggerTests           : Running with Spring Boot v2.7.10, Spring v5.3.26
+2023-05-09 22:06:44.139  INFO 22372 --- [main] com.whut.community.LoggerTests           : No active profile set, falling back to 1 default profile: "default"
+2023-05-09 22:06:45.494  INFO 22372 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-05-09 22:06:45.792  INFO 22372 --- [main] com.whut.community.LoggerTests           : Started LoggerTests in 2.038 seconds (JVM running for 2.806)
+2023-05-09 22:06:46.059 DEBUG 22372 --- [main] com.whut.community.LoggerTests           : debug log
+2023-05-09 22:06:46.059  INFO 22372 --- [main] com.whut.community.LoggerTests           : info log
+2023-05-09 22:06:46.059  WARN 22372 --- [main] com.whut.community.LoggerTests           : warn log
+2023-05-09 22:06:46.059 ERROR 22372 --- [main] com.whut.community.LoggerTests           : error log

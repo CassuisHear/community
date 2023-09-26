@@ -1,0 +1,9 @@
+2023-05-09 22:03:29.822  INFO 10288 --- [main] com.whut.community.LoggerTests           : Starting LoggerTests using Java 11.0.6 on DESKTOP-IDRDEHC with PID 10288 (started by 隠赟 in E:\JavaProjects\community)
+2023-05-09 22:03:29.823 DEBUG 10288 --- [main] com.whut.community.LoggerTests           : Running with Spring Boot v2.7.10, Spring v5.3.26
+2023-05-09 22:03:29.823  INFO 10288 --- [main] com.whut.community.LoggerTests           : No active profile set, falling back to 1 default profile: "default"
+2023-05-09 22:03:31.339  INFO 10288 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-05-09 22:03:31.704  INFO 10288 --- [main] com.whut.community.LoggerTests           : Started LoggerTests in 2.206 seconds (JVM running for 3.002)
+2023-05-09 22:03:32.129 DEBUG 10288 --- [main] com.whut.community.LoggerTests           : debug log
+2023-05-09 22:03:32.129  INFO 10288 --- [main] com.whut.community.LoggerTests           : info log
+2023-05-09 22:03:32.130  WARN 10288 --- [main] com.whut.community.LoggerTests           : warn log
+2023-05-09 22:03:32.130 ERROR 10288 --- [main] com.whut.community.LoggerTests           : error log

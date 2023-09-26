@@ -65,4 +65,9 @@
         update user set password = #{password} where id = #{id};
     </update>
 
+    <!--int updateSalt(int id, String salt);-->
+    <update id="updateSalt">
+        update user set salt = #{salt} where id = #{id};
+    </update>
+
 </mapper>

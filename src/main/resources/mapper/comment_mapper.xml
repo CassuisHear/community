@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.whut.community.dao.CommentMapper">
+
+    <sql id="selectFields">
+        id, user_id,
+        entity_type, entity_id, target_id,
+        content, status, create_time
+    </sql>
+
+    <sql id="insertFields">
+        user_id,
+        entity_type, entity_id, target_id,
+        content, status, create_time
+    </sql>
+
+    <!--List<Comment> selectCommentsByEntity(int entityType, int entityId, int offset, int limit)-->
+    <select id="selectCommentsByEntity" resultType="Comment">
+        select <include refid="selectFields"/>
+        from comment
+        where status = 0
+        and entity_type = #{entityType}
+        and entity_id = #{entityId}
+        order by create_time asc
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--int selectCountByEntity(int entityType, int entityId)-->
+    <select id="selectCountByEntity" resultType="int">
+        select count(id)
+        from comment
+        where status = 0
+        and entity_type = #{entityType}
+        and entity_id = #{entityId}
+    </select>
+
+    <!--int insertComment(Comment comment)-->
+    <insert id="insertComment" parameterType="Comment" keyProperty = "id">
+        insert into comment(<include refid="insertFields"/>)
+        values(#{userId}, #{entityType}, #{entityId}, #{targetId}, #{content}, #{status}, #{createTime});
+    </insert>
+
+    <!--int selectCommentCountByUserId(int userId)-->
+    <select id="selectCommentCountByUserId" resultType="int">
+        select count(id)
+        from comment
+        where entity_type = 1
+        and target_id = 0
+        and status = 0
+        and user_id = #{userId}
+    </select>
+
+    <!--List<Comment> selectCommentByUserId(int userId, int offset, int limit)-->
+    <select id="selectCommentByUserId" resultType="Comment">
+        select <include refid="selectFields"/>
+        from comment
+        where entity_type = 1
+        and target_id = 0
+        and status = 0
+        and user_id = #{userId}
+        order by create_time desc
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--Comment selectCommentById(int id)-->
+    <select id="selectCommentById" resultType="Comment">
+        select <include refid="selectFields"/>
+        from comment
+        where id = #{id}
+    </select>
+
+</mapper>
